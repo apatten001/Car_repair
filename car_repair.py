@@ -1,19 +1,19 @@
-from parts import *
+from parts import part
 
 
 class CarRepair:
 
     def __init__(self):
         self.part = input("What part do you need?: ")
-        self.cost = parts.get(self.part)
+        self.part = self.part.capitalize()
+        self.cost = part.get(self.part)
         self.labor = 1.75
 
     # this gets the part and cost from dictionary
 
     def parts_cost(self):
-
-        if self.part in parts:
-            print("The %s will cost $%i to order." % (self.part, parts.get(self.part)))
+        if self.part in part:
+            print(f"The {self.part} will cost ${self.cost} to order.")
 
         else:
             print("We don't have that item in stock")
@@ -22,3 +22,7 @@ class CarRepair:
 
         print("Your estimate for the repair of the %s will be $%.2f." % (self.part, float(self.cost * self.labor)))
 
+
+Acura = CarRepair()
+Acura.parts_cost()
+Acura.estimate()
